@@ -4,7 +4,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const app = express();
 const authRoutes = require("./routes/authRoutes");
-
+const habitRoutes = require("./routes/habitRoutes");
 // middlewares
 app.use(cors());
 app.use(express.json());
@@ -48,6 +48,10 @@ const authMiddleware = require("./middleware/authMiddleware");
 app.get("/private", authMiddleware, (req, res) => {
   res.json({
     message: "Ruta protegida",
-    userId: req.userId
+    userId: req.userId,
   });
 });
+
+
+
+app.use("/habits", habitRoutes);
