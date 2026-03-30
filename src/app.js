@@ -52,6 +52,8 @@ app.get("/private", authMiddleware, (req, res) => {
   });
 });
 
-
-
 app.use("/habits", habitRoutes);
+
+const habitLogRoutes = require("./routes/habitLogRoutes");
+
+app.use("/habits", habitLogRoutes);
